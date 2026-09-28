@@ -526,7 +526,9 @@
               </button>
             </div>
             <p>Check it with <code>apksigner verify --print-certs &lt;file&gt;.apk</code>. Each release also lists a
-              SHA-256 for every file. NewTube's key is not SmartTube's, so neither app can update the other.</p>
+              SHA-256 for every file. From 1.10.3 the APKs are built by GitHub Actions from the tagged source; check
+              that with <code>gh attestation verify &lt;file&gt;.apk -R aleixrodriala/newtube</code>. NewTube's key is
+              not SmartTube's, so neither app can update the other.</p>
           </div>
         </div>
         <p class="visually-hidden" role="status" aria-live="polite" data-copy-status></p>
@@ -580,7 +582,10 @@
           <details>
             <summary>Is it safe? How do I know the APK is really NewTube?</summary>
             <div class="faq-body">
-              <p>The APKs are built by the maintainer; the builds aren't reproducible yet. Check the signing
+              <p>Up to 1.10.2 the APKs were built on the maintainer's computer. From 1.10.3 they're built by GitHub
+                Actions from the tagged source, and each file has a build attestation you can check with
+                <code>gh attestation verify &lt;file&gt;.apk -R aleixrodriala/newtube</code>. The builds aren't
+                reproducible yet. Check the signing
                 certificate against the fingerprint under <a href="#download">Download</a>, and each file against the
                 SHA-256 in its release notes. Every release is tagged, so you can read
                 <a href="https://github.com/aleixrodriala/newtube">the exact source</a>.</p>
