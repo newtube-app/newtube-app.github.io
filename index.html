@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src https://api.github.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <title>NewTube: Built on SmartTube. Made for your phone.</title>
+  <meta name="description" content="NewTube is an unofficial, open-source YouTube client for Android phones and tablets, built on SmartTube. Sign in with a code, play in the background, save for offline and cast to your TV.">
+  <link rel="canonical" href="https://newtube-app.github.io/">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0b0e1d" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f7fc" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NewTube">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://newtube-app.github.io/">
+  <meta property="og:title" content="NewTube: Built on SmartTube. Made for your phone.">
+  <meta property="og:description" content="An unofficial, open-source YouTube client for Android phones and tablets, built on SmartTube by @yuliskov. Sign in with a code, play in the background, save for offline and cast to SmartTube on your TV.">
+  <meta property="og:image" content="https://newtube-app.github.io/assets/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="NewTube: Built on SmartTube. Made for your phone. Two phone screens showing search and the watch page.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NewTube: Built on SmartTube. Made for your phone.">
+  <meta name="twitter:description" content="An unofficial, open-source YouTube client for Android phones and tablets, built on SmartTube by @yuliskov.">
+  <meta name="twitter:image" content="https://newtube-app.github.io/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="NewTube: Built on SmartTube. Made for your phone. Two phone screens showing search and the watch page.">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NewTube",
+    "alternateName": "NewTube: Built on SmartTube. Made for your phone.",
+    "description": "An unofficial, open-source YouTube client for Android phones and tablets, built on SmartTube by @yuliskov.",
+    "url": "https://newtube-app.github.io/",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Android 7.0 or newer",
+    "downloadUrl": "https://github.com/aleixrodriala/newtube/releases/latest",
+    "image": "https://newtube-app.github.io/assets/icon-512.png",
+    "screenshot": [
+      "https://newtube-app.github.io/assets/screens/watch-720.webp",
+      "https://newtube-app.github.io/assets/screens/downloads-720.webp",
+      "https://newtube-app.github.io/assets/screens/signin-720.webp"
+    ],
+    "license": "https://opensource.org/licenses/MIT",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "NewTube contributors", "url": "https://github.com/aleixrodriala/newtube" },
+    "sameAs": ["https://github.com/aleixrodriala/newtube"],
+    "isBasedOn": {
+      "@type": "SoftwareApplication",
+      "name": "SmartTube",
+      "url": "https://github.com/yuliskov/SmartTube",
+      "author": { "@type": "Person", "name": "yuliskov", "url": "https://github.com/yuliskov" }
+    },
+    "featureList": [
+      "Sign in with a code, without microG, GmsCore or root",
+      "Background playback, picture-in-picture and a mini-player",
+      "Save for offline up to 1080p, or keep only the audio",
+      "SponsorBlock, DeArrow and Return YouTube Dislike",
+      "Cast to SmartTube on your TV"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-github" viewBox="0 0 16 16"><path class="fill" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.7-8.7M16 7l2.5 2.5M13.5 9.5 15.5 11.5"/></symbol>
+    <symbol id="i-pip" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><rect x="12" y="11" width="6" height="5" rx="1"/></symbol>
+    <symbol id="i-offline" viewBox="0 0 24 24"><path d="M12 3.5v11m-4.5-4.5 4.5 4.5 4.5-4.5"/><path d="M4 15.5v2A2.5 2.5 0 0 0 6.5 20h11a2.5 2.5 0 0 0 2.5-2.5v-2"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 3 5.5 13.5h6l-1 7.5 8-10.5h-6z"/></symbol>
+    <symbol id="i-skip" viewBox="0 0 24 24"><path d="M4.5 6.5 11 12l-6.5 5.5zM12.5 6.5 19 12l-6.5 5.5z"/></symbol>
+    <symbol id="i-cast" viewBox="0 0 24 24"><path d="M3 8V6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5H14"/><path d="M3 12a8 8 0 0 1 8 8M3 16a4 4 0 0 1 4 4"/><path d="M3 20h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5v-2a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="i-tv" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 20.5h8"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./">
+        <img src="assets/icon.svg" width="30" height="30" alt="">
+        <span>NewTube</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#sign-in">Sign-in</a></li>
+          <li><a href="#smarttube">SmartTube</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-link" href="https://github.com/aleixrodriala/newtube" aria-label="NewTube on GitHub">
+          <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+        </a>
+        <a class="btn btn-primary btn-sm" href="#download">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 1. Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <ul class="pills" aria-label="At a glance">
+            <li>Phones and tablets</li>
+            <li>Sign in with a code</li>
+            <li>No microG or root</li>
+          </ul>
+          <h1 id="hero-title">
+            <span class="line">Built on SmartTube.</span>
+            <span class="line accent">Made for your phone.</span>
+          </h1>
+          <p class="hero-lead">
+            An unofficial YouTube client for Android phones and tablets, built on
+            <a href="https://github.com/yuliskov/SmartTube">SmartTube</a> by
+            <a href="https://github.com/yuliskov">@yuliskov</a>.
+            Sign in with a code, keep it playing in the background, save videos
+            for offline, and cast to SmartTube on your TV.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-lg" data-apk href="https://github.com/aleixrodriala/newtube/releases/latest">
+              <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+              Download for Android
+            </a>
+            <a class="btn btn-ghost btn-lg" href="https://github.com/aleixrodriala/newtube">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+              View on GitHub
+            </a>
+          </div>
+          <p class="release-line" data-release hidden>
+            <span class="release-dot" aria-hidden="true"></span>
+            <span>Latest: <strong data-release-version></strong><span data-release-sep> · </span><time data-release-date></time></span>
+          </p>
+          <p class="meta-line">Android 7.0+ · Free and open source (MIT)</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="glow" aria-hidden="true"></div>
+          <img class="phone" src="assets/screens/watch-720.webp"
+               srcset="assets/screens/watch-360.webp 360w, assets/screens/watch-720.webp 720w"
+               sizes="(min-width: 960px) 310px, min(66vw, 290px)"
+               width="720" height="1616" fetchpriority="high" decoding="async"
+               alt="The NewTube watch page playing Big Buck Bunny, with SponsorBlock segments marked on the seek bar and a Download button under the video">
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Screenshot strip -->
+    <section class="shots-section" aria-labelledby="shots-title">
+      <div class="wrap">
+        <h2 id="shots-title" class="visually-hidden">Screenshots</h2>
+        <ul class="shots" role="list" tabindex="0" aria-label="Screenshots. Scroll sideways to see more.">
+          <li>
+            <figure>
+              <img src="assets/screens/search-360.webp" srcset="assets/screens/search-360.webp 360w, assets/screens/search-720.webp 720w"
+                   sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
+                   alt="Search results for Blender Studio: channels, playlists and videos">
+              <figcaption>Search</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="assets/screens/quality-360.webp" srcset="assets/screens/quality-360.webp 360w, assets/screens/quality-720.webp 720w"
+                   sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
+                   alt="The quality picker, with options up to 2160p60">
+              <figcaption>Quality up to 2160p60</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="assets/screens/mini-360.webp" srcset="assets/screens/mini-360.webp 360w, assets/screens/mini-720.webp 720w"
+                   sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
+                   alt="The mini-player playing over search results">
+              <figcaption>Mini-player while you browse</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="assets/screens/picker-360.webp" srcset="assets/screens/picker-360.webp 360w, assets/screens/picker-720.webp 720w"
+                   sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
+                   alt="The save-for-offline quality picker, from 1080p down to audio only, with file sizes">
+              <figcaption>Pick a quality, or just the audio</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="assets/screens/downloads-360.webp" srcset="assets/screens/downloads-360.webp 360w, assets/screens/downloads-720.webp 720w"
+                   sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
+                   alt="The Downloads tab listing videos saved for offline, with their quality and size">
+              <figcaption>Saved for offline</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="assets/screens/gear-360.webp" srcset="assets/screens/gear-360.webp 360w, assets/screens/gear-720.webp 720w"
+                   sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
+                   alt="The player settings sheet: quality, subtitles, playback speed, picture-in-picture and rotate lock">
+              <figcaption>Player settings</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Features -->
+    <section id="features" class="section" aria-labelledby="features-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Features</p>
+          <h2 id="features-title">Made for touch, all the way down to the player</h2>
+          <p class="section-lead">The engine is SmartTube's. The touch interface, the player and offline saving are NewTube's.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-key"/></svg></span>
+            <h3>Your account, in seconds</h3>
+            <p>Sign in once with a code and your subscriptions, history, playlists, Watch later and
+              recommendations load from your account. It doesn't need microG, GmsCore, root or a patched app.
+              Signing in is optional; signed out, YouTube still personalises Home from what you watch on this phone.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-pip"/></svg></span>
+            <h3>Keeps playing</h3>
+            <p>Background playback with the screen off, picture-in-picture, and a mini-player you can
+              drag down while you keep browsing. Lock-screen and headset controls work too.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-offline"/></svg></span>
+            <h3>Save for offline</h3>
+            <p>Pick a quality up to 1080p, or keep only the audio. Saved videos play in the same player
+              with no connection, and they show up in your gallery. Subtitles aren't saved with them.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-bolt"/></svg></span>
+            <h3>Measured speed</h3>
+            <p>The first screen appears in about 0.24&nbsp;s, and a related video shows its first frame about half
+              a second after you tap it (<a href="#how-fast">Pixel 9 medians</a>). The interface is plain Material Design,
+              in light or dark.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-skip"/></svg></span>
+            <h3>Less noise</h3>
+            <p><strong>SponsorBlock</strong> skips sponsor segments, <strong>DeArrow</strong> swaps clickbait titles and thumbnails,
+              and <strong>Return YouTube Dislike</strong> shows estimated dislike counts. Shorts are hidden in Home and
+              Subscriptions.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-cast"/></svg></span>
+            <h3>Works with SmartTube on your TV</h3>
+            <p>Pair with SmartTube on the TV using its Remote control code. You can also play straight to a
+              Chromecast from the phone (no live streams or subtitles in that mode), or use the TV's own
+              YouTube app.</p>
+          </article>
+        </div>
+
+        <div class="more">
+          <div class="more-copy">
+            <h3>Everything else</h3>
+            <ul class="checklist">
+              <li>Up to 4K where the video and the phone allow (1080p by default), with codec choice</li>
+              <li>Subtitles, including auto-translated tracks, and caption style and size</li>
+              <li>Playback speed from 0.25x to 2x, plus finer steps</li>
+              <li>Playlists: Play all, Shuffle, Save to playlist, New playlist, a queue with “Playing from…”</li>
+              <li>Several accounts, with a switcher, or none at all</li>
+              <li>Picture-in-picture on Android 8 and later</li>
+              <li>Read comments and live chat; chapters and dubbed audio tracks</li>
+              <li>Playback that waits out tunnels and dead zones and resumes where it stopped</li>
+              <li>English and Spanish</li>
+            </ul>
+          </div>
+          <figure class="landscape">
+            <img src="assets/screens/fullscreen-800.webp"
+                 srcset="assets/screens/fullscreen-800.webp 800w, assets/screens/fullscreen-1600.webp 1600w"
+                 sizes="(min-width: 1000px) 600px, calc(100vw - 32px)" width="1600" height="713" loading="lazy" decoding="async"
+                 alt="The full-screen player in landscape, playing Big Buck Bunny">
+            <figcaption>The full-screen player</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Sign-in -->
+    <section id="sign-in" class="section section-alt" aria-labelledby="signin-title">
+      <div class="wrap split">
+        <div class="split-copy">
+          <header class="section-head">
+            <p class="eyebrow">Sign-in</p>
+            <h2 id="signin-title">How sign-in works</h2>
+            <p class="section-lead">Signing in is optional. When you do, NewTube signs in the same way a TV does, with a short code.</p>
+          </header>
+          <ol class="steps">
+            <li>
+              <h3>Get a code</h3>
+              <p>Open the <strong>You</strong> tab, tap the account row, then <strong>Sign in</strong>. NewTube shows a short code.</p>
+            </li>
+            <li>
+              <h3>Allow access on Google's page</h3>
+              <p>Tap <strong>Continue with Google</strong>. Google's own page opens: pick your account and allow access.
+                It may mention a TV, because NewTube signs in the same way a TV does.</p>
+            </li>
+            <li>
+              <h3>Come back</h3>
+              <p>Sign-in finishes by itself.</p>
+            </li>
+          </ol>
+          <p class="note">
+            Your password is only ever typed into Google's page, never into NewTube. The login token is
+            stored on your phone and never sent to the developer. You can revoke it at any time at
+            <a href="https://myaccount.google.com/security">myaccount.google.com/security</a>, under
+            <em>Your connections to third-party apps &amp; services</em>.
+          </p>
+        </div>
+        <figure class="split-visual">
+          <div class="glow glow-sm" aria-hidden="true"></div>
+          <img class="phone" src="assets/screens/signin-720.webp"
+               srcset="assets/screens/signin-360.webp 360w, assets/screens/signin-720.webp 720w"
+               sizes="(min-width: 960px) 290px, min(66vw, 280px)" width="720" height="1616" loading="lazy" decoding="async"
+               alt="The NewTube sign-in screen: three steps, a code to match, and a Continue with Google button">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 5. How fast -->
+    <section id="how-fast" class="section" aria-labelledby="fast-title">
+      <div class="wrap fast">
+        <header class="section-head">
+          <p class="eyebrow">Speed</p>
+          <h2 id="fast-title">How fast</h2>
+          <p class="section-lead">
+            Medians measured on a Pixel 9 with release builds: small samples, one phone, one carrier, and the
+            mobile-data runs were on different days. The method and the full table are in
+            <a href="https://github.com/aleixrodriala/newtube/blob/main/docs/mobile-port/STATUS.md">STATUS.md</a>.
+          </p>
+          <div class="hero-figure">
+            <p class="hero-figure-value">0.24&nbsp;s</p>
+            <p class="hero-figure-label">Open the app → first screen</p>
+          </div>
+        </header>
+        <div class="table-card">
+          <table class="data-table">
+            <caption class="visually-hidden">Median times measured on a Pixel 9 with release builds</caption>
+            <thead>
+              <tr><th scope="col"><span class="visually-hidden">Action</span></th><th scope="col">Wi-Fi</th><th scope="col">Mobile data</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Open the app → first screen</th><td>0.24 s</td><td>0.24 s</td></tr>
+              <tr><th scope="row">Open the app → Home fully painted</th><td>1.35 s</td><td>1.56 s</td></tr>
+              <tr><th scope="row">Tap a related video → first frame</th><td>0.50 s</td><td>0.53 s</td></tr>
+              <tr><th scope="row">Tap a related video → picture visible</th><td>0.66 s</td><td>0.73 s</td></tr>
+              <tr><th scope="row">Reopen a half-watched video → picture</th><td>0.37 s</td><td><span aria-label="not measured">–</span></td></tr>
+              <tr><th scope="row">Tap a shared link → first frame</th><td>0.66 s</td><td>0.84 s</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Built on SmartTube -->
+    <section id="smarttube" class="section section-alt" aria-labelledby="smarttube-title">
+      <div class="wrap">
+        <div class="credit-grid">
+          <header class="section-head">
+            <p class="eyebrow">Credit where it's due</p>
+            <h2 id="smarttube-title">Built on SmartTube</h2>
+            <p class="section-lead">
+              NewTube is SmartTube's work underneath. The engine that talks to YouTube, the account sign-in
+              and the SponsorBlock, DeArrow and Return YouTube Dislike integrations all come from
+              <a href="https://github.com/yuliskov/SmartTube">SmartTube</a> by
+              <a href="https://github.com/yuliskov">@yuliskov</a>.
+            </p>
+            <p>
+              NewTube adds a touch interface, its own player and offline saving. It is an independent
+              project, not endorsed by SmartTube's developer. NewTube takes no donations: if you find it
+              useful, <a href="https://github.com/yuliskov/SmartTube#donation">support SmartTube</a>.
+            </p>
+          </header>
+
+          <div class="table-card">
+            <table class="compare">
+              <caption class="visually-hidden">SmartTube and NewTube compared</caption>
+              <thead>
+                <tr><th scope="col"><span class="visually-hidden">Aspect</span></th><th scope="col">SmartTube</th><th scope="col">NewTube</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Made for</th><td>Android TV and TV boxes</td><td>Phones and tablets</td></tr>
+                <tr><th scope="row">Controls</th><td>TV remote (D-pad)</td><td>Touch and gestures</td></tr>
+                <tr><th scope="row">Interface</th><td>Leanback</td><td>Material Design</td></tr>
+                <tr><th scope="row">Engine</th><td>MediaServiceCore + SharedModules</td><td>Forks of the same modules</td></tr>
+                <tr><th scope="row">Player</th><td>ExoPlayer</td><td>androidx Media3</td></tr>
+                <tr><th scope="row">Offline saving</th><td>No</td><td>Yes</td></tr>
+                <tr><th scope="row">License</th><td>MIT</td><td>MIT</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="tv-card" aria-label="SmartTube for Android TV">
+          <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-tv"/></svg></span>
+          <div class="tv-card-copy">
+            <h3>Have an Android TV? Get SmartTube.</h3>
+            <p>It's excellent, and NewTube can cast to it.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/yuliskov/SmartTube">
+            Get SmartTube
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </aside>
+
+        <h3 class="credits-title">Also standing on</h3>
+        <ul class="credits">
+          <li>
+            <a href="https://github.com/yuliskov/SmartTube">SmartTube</a>
+            <span class="credits-by"><a href="https://github.com/yuliskov">@yuliskov</a> and contributors</span>
+            <span class="credits-for">The engine, accounts and integrations: everything under the hood</span>
+          </li>
+          <li>
+            <span><a href="https://sponsor.ajay.app">SponsorBlock</a> · <a href="https://dearrow.ajay.app">DeArrow</a></span>
+            <span class="credits-by">Ajay Ramachandran and contributors</span>
+            <span class="credits-for">Segment and title data (CC BY-NC-SA 4.0)</span>
+          </li>
+          <li>
+            <a href="https://returnyoutubedislike.com">Return YouTube Dislike</a>
+            <span class="credits-by">RYD contributors</span>
+            <span class="credits-for">Dislike counts</span>
+          </li>
+          <li>
+            <a href="https://developer.android.com/media/media3">androidx Media3</a>
+            <span class="credits-by">Google (Apache-2.0)</span>
+            <span class="credits-for">Playback</span>
+          </li>
+        </ul>
+        <p class="fine">Full notices are in
+          <a href="https://github.com/aleixrodriala/newtube/blob/main/THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a>.</p>
+      </div>
+    </section>
+
+    <!-- 7. Download and verify -->
+    <section id="download" class="section" aria-labelledby="download-title">
+      <div class="wrap">
+        <header class="section-head section-head-center">
+          <p class="eyebrow">Download</p>
+          <h2 id="download-title">Download and verify</h2>
+          <p class="section-lead">Distributed on GitHub, not on Google Play. Every APK is signed with the same key.</p>
+          <div class="cta-row cta-center">
+            <a class="btn btn-primary btn-lg" data-apk href="https://github.com/aleixrodriala/newtube/releases/latest">
+              <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+              Download for Android
+            </a>
+            <a class="btn btn-ghost btn-lg" href="https://github.com/aleixrodriala/newtube/releases">All releases</a>
+          </div>
+          <p class="release-line" data-release hidden>
+            <span class="release-dot" aria-hidden="true"></span>
+            <span>Latest: <strong data-release-version></strong><span data-release-sep> · </span><time data-release-date></time></span>
+          </p>
+          <p class="meta-line">Android 7.0+ · Free and open source (MIT)</p>
+        </header>
+
+        <div class="dl-grid">
+          <div class="panel panel-apk">
+            <h3>Which file?</h3>
+            <ul class="apk-list">
+              <li>
+                <code>NewTube_&lt;version&gt;_<wbr>arm64-v8a.apk</code>
+                <span>Almost every phone from the last ~8 years</span>
+              </li>
+              <li>
+                <code>NewTube_&lt;version&gt;_<wbr>armeabi-v7a.apk</code>
+                <span>Older 32-bit phones</span>
+              </li>
+              <li>
+                <code>NewTube_&lt;version&gt;_<wbr>universal.apk</code>
+                <span>Not sure? Any ARM phone (bigger)</span>
+              </li>
+              <li>
+                <code>NewTube_&lt;version&gt;_<wbr>x86.apk</code>
+                <span>Older x86 devices and emulators</span>
+              </li>
+            </ul>
+            <p class="panel-foot">
+              <strong>Requires Android 7.0 or newer.</strong> NewTube has its own package name
+              (<code>io.github.aleixrodriala.arc</code>), so it installs next to SmartTube or the YouTube app.
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>Updates</h3>
+            <p>With <a href="https://obtainium.imranr.dev">Obtainium</a>, choose <em>Add app</em> and paste:</p>
+            <div class="copy-field">
+              <code id="repo-url">https://github.com/aleixrodriala/newtube</code>
+              <button class="copy-btn" type="button" data-copy="repo-url" hidden>
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#i-copy"/></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <p>Or install a newer APK over the old one: every release is signed with the same key.
+              The built-in update check isn't live yet.</p>
+            <h3 class="panel-subtitle">Distributed on GitHub</h3>
+            <p>NewTube is distributed on GitHub, not on Google Play.</p>
+          </div>
+
+          <div class="panel panel-wide">
+            <h3>Verify what you install</h3>
+            <p>Every APK is signed with the same key. Its certificate SHA-256 is:</p>
+            <div class="copy-field">
+              <code id="cert-sha" class="fingerprint">2e:f9:9d:76:ed:fa:d9:88:ad:17:cd:ee:8b:a1:8c:63:4e:23:0f:e1:e3:cb:1f:dc:6c:db:02:49:37:0a:36:c9</code>
+              <button class="copy-btn" type="button" data-copy="cert-sha" hidden>
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#i-copy"/></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <p>Check it with <code>apksigner verify --print-certs &lt;file&gt;.apk</code>. Each release also lists a
+              SHA-256 for every file. NewTube's key is not SmartTube's, so neither app can update the other.</p>
+          </div>
+        </div>
+        <p class="visually-hidden" role="status" aria-live="polite" data-copy-status></p>
+      </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section id="faq" class="section section-alt" aria-labelledby="faq-title">
+      <div class="wrap faq-wrap">
+        <header class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Questions</h2>
+          <p class="section-lead">Something missing? <a href="https://github.com/aleixrodriala/newtube/issues">Ask on GitHub</a>.</p>
+        </header>
+
+        <div class="faq">
+          <details>
+            <summary>Is there a SmartTube app for phones?</summary>
+            <div class="faq-body">
+              <p>SmartTube itself is made for Android TV and TV boxes, with an interface built for a TV remote.
+                NewTube is an unofficial phone client built on its engine: the same account sign-in and the same
+                SponsorBlock, DeArrow and Return YouTube Dislike integrations, with a touch interface, its own player
+                and offline saving. It is an independent project, not endorsed by SmartTube's developer.
+                If you have an Android TV, get <a href="https://github.com/yuliskov/SmartTube">SmartTube</a> for it.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Do I need microG, GmsCore, root or ReVanced?</summary>
+            <div class="faq-body">
+              <p>No. NewTube isn't a patched YouTube app. It signs in with a code the way a TV does, so it
+                doesn't need Google Play Services or a stand-in for them.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How is it different from NewPipe, LibreTube or ReVanced?</summary>
+            <div class="faq-body">
+              <p>They're all good apps, and which one fits depends on what you want. NewPipe and LibreTube
+                don't sign in to a Google account; they keep subscriptions on your phone or on a Piped server.
+                ReVanced patches the official app and needs GmsCore unless you're rooted.
+                NewTube is built on SmartTube, so it uses your real account without any of that.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is there another SmartTube-based phone app?</summary>
+            <div class="faq-body">
+              <p>Yes. <a href="https://github.com/CodeSculptor/SmarterTube">SmarterTube</a> is another independent phone
+                fork of SmartTube, worth comparing. The two are separate projects. One difference today
+                (September 2026): NewTube can save videos for offline.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is it safe? How do I know the APK is really NewTube?</summary>
+            <div class="faq-body">
+              <p>The APKs are built by the maintainer; the builds aren't reproducible yet. Check the signing
+                certificate against the fingerprint under <a href="#download">Download</a>, and each file against the
+                SHA-256 in its release notes. Every release is tagged, so you can read
+                <a href="https://github.com/aleixrodriala/newtube">the exact source</a>.</p>
+              <p>No analytics, no crash reporting, no ad SDKs. The developer receives nothing.
+                The app talks to YouTube (which sees what you watch, as it would anywhere), to the community services
+                you can switch off (SponsorBlock, DeArrow, Return YouTube Dislike), and to GitHub. Details are
+                in <a href="https://github.com/aleixrodriala/newtube/blob/main/PRIVACY.md">PRIVACY.md</a>.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Was this made with AI?</summary>
+            <div class="faq-body">
+              <p>Yes, in large part. NewTube is one person's project, and most of its own code (the phone
+                interface, the player and the network work) was written with AI coding assistants (Claude and
+                Codex); the commit trailers say so. The maintainer directs and reviews that work and uses the app
+                daily. Each <a href="https://github.com/aleixrodriala/newtube/tree/main/docs/releases">release record</a>
+                lists what was checked on a real phone, what only in automated tests, and what is still open.
+                The engine underneath is SmartTube's, written by @yuliskov and its contributors over several years.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Why no donations?</summary>
+            <div class="faq-body">
+              <p>NewTube doesn't take donations. SmartTube did the heavy lifting, so if you want to give
+                something back, <a href="https://github.com/yuliskov/SmartTube#donation">support SmartTube</a>.</p>
+            </div>
+          </details>
+          <details>
+            <summary>A video won't play. What now?</summary>
+            <div class="faq-body">
+              <p>YouTube sometimes refuses a video or an account. NewTube retries through other routes, but not
+                every video comes back. If one keeps failing,
+                <a href="https://github.com/aleixrodriala/newtube/issues/new/choose">open an issue</a>
+                with the video link and your NewTube version.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. Footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="./">
+            <img src="assets/icon.svg" width="30" height="30" alt="">
+            <span>NewTube</span>
+          </a>
+          <p>Built on SmartTube. Made for your phone.</p>
+        </div>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="https://github.com/aleixrodriala/newtube">GitHub</a></li>
+            <li><a href="https://github.com/aleixrodriala/newtube/releases">Releases</a></li>
+            <li><a href="https://github.com/aleixrodriala/newtube/blob/main/PRIVACY.md">Privacy</a></li>
+            <li><a href="https://github.com/aleixrodriala/newtube/blob/main/LICENSE">License (MIT)</a></li>
+            <li><a href="https://github.com/aleixrodriala/newtube/issues">Issues</a></li>
+            <li><a href="https://github.com/yuliskov/SmartTube">SmartTube</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-license">MIT, the same as SmartTube. © yuliskov (SmartTube) and NewTube contributors.</p>
+      <p class="disclaimer"><em>NewTube is an independent, unofficial project. It is not affiliated with, funded, authorized or
+        endorsed by Google LLC, YouTube, or SmartTube's developer, and it hosts no content. Save only what
+        the law and the platform's terms allow you to. YouTube, Android and Google are trademarks of Google LLC.</em></p>
+    </div>
+  </footer>
+</body>
+</html>
