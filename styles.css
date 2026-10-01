@@ -424,6 +424,7 @@ code {
 .shots > li { flex: 0 0 58%; scroll-snap-align: start; }
 .shots figure { margin: 0; }
 .shots img { width: 100%; filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.35)); }
+.shots video { display: block; width: 100%; height: auto; background: #000; filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.35)); }
 .shots figcaption,
 .landscape figcaption {
   margin-top: 12px;
@@ -885,3 +886,11 @@ tbody td { color: var(--text-2); }
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- SmartTube for phones / Trust ---------- */
+.cards + .cta-row { margin-top: 32px; }
+.panel p + p { margin-top: 12px; }
+.checklist-tight { margin-top: 16px; }
+.checklist-tight li { padding: 10px 0 10px 30px; font-size: 0.95rem; }
+.checklist-tight code { word-break: break-word; }
+.faq-body p + p { margin-top: 10px; }

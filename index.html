@@ -4,9 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src https://api.github.com; base-uri 'none'; form-action 'none'; object-src 'none'">
-  <title>NewTube: Built on SmartTube. Made for your phone.</title>
-  <meta name="description" content="NewTube is an unofficial, open-source YouTube client for Android phones and tablets, built on SmartTube. Sign in with a code, play in the background, save for offline and cast to your TV.">
-  <link rel="canonical" href="https://newtube-app.github.io/">
+  <title>SmartTube for phones: NewTube, unofficial YouTube app for Android</title>
+  <meta name="description" content="NewTube is SmartTube for phones: an unofficial, open-source Android YouTube client built on SmartTube by @yuliskov. Code sign-in, background play, SponsorBlock, save for offline.">
+  <link rel="canonical" href="https://newtube.org/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="NewTube contributors">
+  <!-- Google Search Console: paste the verification tag here when the owner creates the
+       property (steps in website/README.md), e.g.
+  <meta name="google-site-verification" content="TOKEN_FROM_SEARCH_CONSOLE">
+  -->
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0b0e1d" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f6f7fc" media="(prefers-color-scheme: light)">
@@ -16,18 +22,18 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NewTube">
   <meta property="og:locale" content="en_US">
-  <meta property="og:url" content="https://newtube-app.github.io/">
-  <meta property="og:title" content="NewTube: Built on SmartTube. Made for your phone.">
+  <meta property="og:url" content="https://newtube.org/">
+  <meta property="og:title" content="NewTube: SmartTube for phones (unofficial)">
   <meta property="og:description" content="An unofficial, open-source YouTube client for Android phones and tablets, built on SmartTube by @yuliskov. Sign in with a code, play in the background, save for offline and cast to SmartTube on your TV.">
-  <meta property="og:image" content="https://newtube-app.github.io/assets/og-image.jpg">
+  <meta property="og:image" content="https://newtube.org/assets/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
   <meta property="og:image:alt" content="NewTube: Built on SmartTube. Made for your phone. Two phone screens showing search and the watch page.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="NewTube: Built on SmartTube. Made for your phone.">
+  <meta name="twitter:title" content="NewTube: SmartTube for phones (unofficial)">
   <meta name="twitter:description" content="An unofficial, open-source YouTube client for Android phones and tablets, built on SmartTube by @yuliskov.">
-  <meta name="twitter:image" content="https://newtube-app.github.io/assets/og-image.jpg">
+  <meta name="twitter:image" content="https://newtube.org/assets/og-image.jpg">
   <meta name="twitter:image:alt" content="NewTube: Built on SmartTube. Made for your phone. Two phone screens showing search and the watch page.">
 
   <link rel="stylesheet" href="styles.css">
@@ -38,23 +44,26 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "NewTube",
-    "alternateName": "NewTube: Built on SmartTube. Made for your phone.",
-    "description": "An unofficial, open-source YouTube client for Android phones and tablets, built on SmartTube by @yuliskov.",
-    "url": "https://newtube-app.github.io/",
+    "alternateName": "NewTube for Android",
+    "description": "SmartTube for phones, unofficial: an open-source YouTube client for Android phones and tablets, built on SmartTube by @yuliskov.",
+    "applicationSubCategory": "YouTube client",
+    "softwareRequirements": "Android 7.0 or newer; no Google Play Services needed",
+    "codeRepository": "https://github.com/aleixrodriala/newtube",
+    "url": "https://newtube.org/",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "Android 7.0 or newer",
     "downloadUrl": "https://github.com/aleixrodriala/newtube/releases/latest",
-    "image": "https://newtube-app.github.io/assets/icon-512.png",
+    "image": "https://newtube.org/assets/icon-512.png",
     "screenshot": [
-      "https://newtube-app.github.io/assets/screens/watch-720.webp",
-      "https://newtube-app.github.io/assets/screens/downloads-720.webp",
-      "https://newtube-app.github.io/assets/screens/signin-720.webp"
+      "https://newtube.org/assets/screens/watch-720.webp",
+      "https://newtube.org/assets/screens/downloads-720.webp",
+      "https://newtube.org/assets/screens/signin-720.webp"
     ],
     "license": "https://opensource.org/licenses/MIT",
     "isAccessibleForFree": true,
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "author": { "@type": "Organization", "name": "NewTube contributors", "url": "https://github.com/aleixrodriala/newtube" },
-    "sameAs": ["https://github.com/aleixrodriala/newtube"],
+    "author": { "@type": "Person", "name": "aleixrodriala", "url": "https://github.com/aleixrodriala" },
+    "sameAs": ["https://github.com/aleixrodriala/newtube", "https://github.com/newtube-app"],
     "isBasedOn": {
       "@type": "SoftwareApplication",
       "name": "SmartTube",
@@ -67,6 +76,118 @@
       "Save for offline up to 1080p, or keep only the audio",
       "SponsorBlock, DeArrow and Return YouTube Dislike",
       "Cast to SmartTube on your TV"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can SmartTube be installed on phones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SmartTube is made for Android TV and TV boxes. Its README says it is not for smartphones and offers no support there: “There will not be a phone version.” NewTube is an unofficial phone client built on SmartTube's engine: the same account sign-in and the same SponsorBlock, DeArrow and Return YouTube Dislike integrations, with a touch interface, its own player and offline saving. If you have an Android TV, get SmartTube for it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is NewTube official?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. NewTube is an independent, unofficial project. It is not affiliated with, funded, authorized or endorsed by Google LLC, YouTube, or SmartTube's developer. It is built on SmartTube's open-source code (MIT) by @yuliskov and credits it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it need Google Play Services, microG, root or ReVanced?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. NewTube isn't a patched YouTube app. It signs in with a code the way a TV does, so it doesn't need Google Play Services or a stand-in for them, and its APK contains no Google Play Services libraries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I sign in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open the You tab, tap the account row, then Sign in. NewTube shows a short code. Tap Continue with Google, pick your account on Google's own page and allow access, then come back: sign-in finishes by itself. Your password is only ever typed into Google's page, never into NewTube, and signing in is optional. More on sign-in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it safe? Who signs the APK?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every NewTube APK is signed with the same key, which belongs to the maintainer, @aleixrodriala. Since 1.10.3 the APKs are built and signed by GitHub Actions from the tagged source, and each file has a build attestation. Each release lists a SHA-256 for every file and a VirusTotal scan of every APK. The app has no analytics, no crash reporting and no ad SDKs. The certificate fingerprint and how to check each of these yourself are under Trust and verification."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which APK do I pick?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "arm64-v8a fits almost every phone from the last ~8 years. armeabi-v7a is for older 32-bit phones, universal works on any ARM phone if you're not sure (it's bigger), and x86 is for older x86 devices and emulators. NewTube needs Android 7.0 or newer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do updates work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NewTube checks its GitHub releases for a new version and offers it in the app; Android's installer then installs it over the old one, keeping your account and settings. You can also add https://github.com/aleixrodriala/newtube to Obtainium, or install a newer APK over the old one yourself."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will Google's developer verification block NewTube?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not for now, according to Google. The verification requirement that started on 30 September 2026 covers apps installed from participating stores, such as Google Play. Google's FAQ says that if users sideload an app directly, “these new verification requirements won't apply to your app yet.” NewTube is installed from GitHub, so it is sideloaded. Google has announced that verification will reach all installs in 2027; what NewTube does about that hasn't been decided yet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was it made with AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, in large part. NewTube is one person's project, and most of its own code (the phone interface, the player and the network work) was written with AI coding assistants (Claude and Codex); the commit trailers say so. The maintainer directs and reviews that work and uses the app daily. Each release record lists what was checked on a real phone, what only in automated tests, and what is still open. The engine underneath is SmartTube's, written by @yuliskov and its contributors over several years."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is it different from NewPipe, LibreTube or ReVanced?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "They're all good apps, and which one fits depends on what you want. NewPipe and LibreTube don't sign in to a Google account; they keep subscriptions on your phone or on a Piped server. ReVanced patches the official app and needs GmsCore unless you're rooted. NewTube is built on SmartTube, so it uses your real account without any of that."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there another SmartTube-based phone app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. SmarterTube is another independent phone fork of SmartTube, worth comparing. The two are separate projects. One difference today (September 2026): NewTube can save videos for offline."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why no donations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NewTube doesn't take donations. SmartTube did the heavy lifting, so if you want to give something back, support SmartTube."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "A video won't play. What now?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "YouTube sometimes refuses a video or an account. NewTube retries through other routes, but not every video comes back. If one keeps failing, open an issue with the video link and your NewTube version."
+        }
+      }
     ]
   }
   </script>
@@ -97,14 +218,14 @@
       </a>
       <nav class="nav" aria-label="Main">
         <ul>
+          <li><a href="#smarttube-for-phones">SmartTube for phones</a></li>
           <li><a href="#features">Features</a></li>
-          <li><a href="#sign-in">Sign-in</a></li>
-          <li><a href="#smarttube">SmartTube</a></li>
+          <li><a href="#trust">Trust</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
       <div class="header-actions">
-        <a class="icon-link" href="https://github.com/aleixrodriala/newtube" aria-label="NewTube on GitHub">
+        <a class="icon-link" href="https://github.com/aleixrodriala/newtube" aria-label="NewTube source code on GitHub">
           <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
         </a>
         <a class="btn btn-primary btn-sm" href="#download">Download</a>
@@ -118,16 +239,16 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <ul class="pills" aria-label="At a glance">
+            <li>Built on SmartTube</li>
             <li>Phones and tablets</li>
-            <li>Sign in with a code</li>
             <li>No microG or root</li>
           </ul>
           <h1 id="hero-title">
-            <span class="line">Built on SmartTube.</span>
-            <span class="line accent">Made for your phone.</span>
+            <span class="line">SmartTube for phones.</span>
+            <span class="line accent">Unofficial, open source.</span>
           </h1>
           <p class="hero-lead">
-            An unofficial YouTube client for Android phones and tablets, built on
+            NewTube is an unofficial YouTube client for Android phones and tablets, built on
             <a href="https://github.com/yuliskov/SmartTube">SmartTube</a> by
             <a href="https://github.com/yuliskov">@yuliskov</a>.
             Sign in with a code, keep it playing in the background, save videos
@@ -140,14 +261,14 @@
             </a>
             <a class="btn btn-ghost btn-lg" href="https://github.com/aleixrodriala/newtube">
               <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
-              View on GitHub
+              Source code on GitHub
             </a>
           </div>
           <p class="release-line" data-release hidden>
             <span class="release-dot" aria-hidden="true"></span>
             <span>Latest: <strong data-release-version></strong><span data-release-sep> · </span><time data-release-date></time></span>
           </p>
-          <p class="meta-line">Android 7.0+ · Free and open source (MIT)</p>
+          <p class="meta-line">Android 7.0+ · Free and open source (MIT) · Not affiliated with Google, YouTube or SmartTube's developer</p>
         </div>
 
         <div class="hero-visual">
@@ -156,7 +277,7 @@
                srcset="assets/screens/watch-360.webp 360w, assets/screens/watch-720.webp 720w"
                sizes="(min-width: 960px) 310px, min(66vw, 290px)"
                width="720" height="1616" fetchpriority="high" decoding="async"
-               alt="The NewTube watch page playing Big Buck Bunny, with SponsorBlock segments marked on the seek bar and a Download button under the video">
+               alt="The NewTube watch page playing Sintel, with chapters on the seek bar and a Download button under the video">
         </div>
       </div>
     </section>
@@ -168,34 +289,34 @@
         <ul class="shots" role="list" tabindex="0" aria-label="Screenshots. Scroll sideways to see more.">
           <li>
             <figure>
-              <img src="assets/screens/search-360.webp" srcset="assets/screens/search-360.webp 360w, assets/screens/search-720.webp 720w"
+              <img src="assets/screens/channel-360.webp" srcset="assets/screens/channel-360.webp 360w, assets/screens/channel-720.webp 720w"
                    sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
-                   alt="Search results for Blender Studio: channels, playlists and videos">
-              <figcaption>Search</figcaption>
+                   alt="The Blender Studio channel page, with its sections as tabs">
+              <figcaption>Channel pages</figcaption>
             </figure>
           </li>
           <li>
             <figure>
-              <img src="assets/screens/quality-360.webp" srcset="assets/screens/quality-360.webp 360w, assets/screens/quality-720.webp 720w"
+              <img src="assets/screens/comments-360.webp" srcset="assets/screens/comments-360.webp 360w, assets/screens/comments-720.webp 720w"
                    sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
-                   alt="The quality picker, with options up to 2160p60">
-              <figcaption>Quality up to 2160p60</figcaption>
+                   alt="The comments panel open under the video, sorted by Top">
+              <figcaption>Comments under the video</figcaption>
             </figure>
           </li>
           <li>
             <figure>
               <img src="assets/screens/mini-360.webp" srcset="assets/screens/mini-360.webp 360w, assets/screens/mini-720.webp 720w"
                    sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
-                   alt="The mini-player playing over search results">
+                   alt="The mini-player playing over the Blender Studio channel page">
               <figcaption>Mini-player while you browse</figcaption>
             </figure>
           </li>
           <li>
             <figure>
-              <img src="assets/screens/picker-360.webp" srcset="assets/screens/picker-360.webp 360w, assets/screens/picker-720.webp 720w"
+              <img src="assets/screens/light-360.webp" srcset="assets/screens/light-360.webp 360w, assets/screens/light-720.webp 720w"
                    sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
-                   alt="The save-for-offline quality picker, from 1080p down to audio only, with file sizes">
-              <figcaption>Pick a quality, or just the audio</figcaption>
+                   alt="The watch page in the light theme">
+              <figcaption>Light or dark</figcaption>
             </figure>
           </li>
           <li>
@@ -208,22 +329,73 @@
           </li>
           <li>
             <figure>
-              <img src="assets/screens/gear-360.webp" srcset="assets/screens/gear-360.webp 360w, assets/screens/gear-720.webp 720w"
-                   sizes="(min-width: 1000px) 180px, (min-width: 640px) 30vw, 58vw" width="720" height="1616" loading="lazy" decoding="async"
-                   alt="The player settings sheet: quality, subtitles, playback speed, picture-in-picture and rotate lock">
-              <figcaption>Player settings</figcaption>
+              <video src="assets/video/demo.mp4" poster="assets/video/demo-poster.webp" width="540" height="1212"
+                     autoplay muted loop playsinline preload="metadata"
+                     aria-label="A 20-second clip: Blender Studio's channel, a video with chapters on the seek bar, the comments panel, a seek, then the mini-player"></video>
+              <figcaption>In motion</figcaption>
             </figure>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- 3. Features -->
+    <!-- 3. SmartTube for phones -->
+    <section id="smarttube-for-phones" class="section section-alt" aria-labelledby="phones-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Unofficial · built on SmartTube by @yuliskov</p>
+          <h2 id="phones-title">SmartTube for phones</h2>
+          <p class="section-lead">
+            <a href="https://github.com/yuliskov/SmartTube">SmartTube</a> is made for Android TV and TV boxes,
+            with an interface built for a TV remote. Its README says it is not for smartphones:
+            &ldquo;There will not be a phone version.&rdquo; NewTube is an independent project that takes
+            SmartTube's engine to phones and tablets, with a touch interface. It is not made or endorsed
+            by SmartTube's developer.
+          </p>
+        </header>
+
+        <div class="cards">
+          <article class="card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-tv"/></svg></span>
+            <h3>What comes from SmartTube</h3>
+            <p>The engine that talks to YouTube, the account sign-in with a code, and the SponsorBlock,
+              DeArrow and Return YouTube Dislike integrations. NewTube runs on forks of SmartTube's
+              MediaServiceCore and SharedModules.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-pip"/></svg></span>
+            <h3>What NewTube adds for phones</h3>
+            <p>A Material Design touch interface, its own player on androidx Media3, a mini-player you can drag
+              down while you browse, picture-in-picture, and saving videos for offline.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-key"/></svg></span>
+            <h3>A separate app, with its own key</h3>
+            <p>NewTube has its own package name (<code>io.github.aleixrodriala.arc</code>) and its own signing key,
+              so it installs next to SmartTube or the YouTube app, and neither can update the other.
+              It can cast to SmartTube on your TV.</p>
+          </article>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" data-apk href="https://github.com/aleixrodriala/newtube/releases/latest">
+            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+            Download NewTube for Android
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/aleixrodriala/newtube">
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+            NewTube's source code on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Features -->
     <section id="features" class="section" aria-labelledby="features-title">
       <div class="wrap">
         <header class="section-head">
           <p class="eyebrow">Features</p>
-          <h2 id="features-title">Made for touch, all the way down to the player</h2>
+          <h2 id="features-title">Background play, SponsorBlock and offline saving, made for touch</h2>
           <p class="section-lead">The engine is SmartTube's. The touch interface, the player and offline saving are NewTube's.</p>
         </header>
 
@@ -295,13 +467,13 @@
       </div>
     </section>
 
-    <!-- 4. Sign-in -->
+    <!-- 5. Sign-in -->
     <section id="sign-in" class="section section-alt" aria-labelledby="signin-title">
       <div class="wrap split">
         <div class="split-copy">
           <header class="section-head">
             <p class="eyebrow">Sign-in</p>
-            <h2 id="signin-title">How sign-in works</h2>
+            <h2 id="signin-title">How sign-in works, without Google Play Services</h2>
             <p class="section-lead">Signing in is optional. When you do, NewTube signs in the same way a TV does, with a short code.</p>
           </header>
           <ol class="steps">
@@ -336,7 +508,7 @@
       </div>
     </section>
 
-    <!-- 5. How fast -->
+    <!-- 6. How fast -->
     <section id="how-fast" class="section" aria-labelledby="fast-title">
       <div class="wrap fast">
         <header class="section-head">
@@ -371,7 +543,7 @@
       </div>
     </section>
 
-    <!-- 6. Built on SmartTube -->
+    <!-- 7. Built on SmartTube -->
     <section id="smarttube" class="section section-alt" aria-labelledby="smarttube-title">
       <div class="wrap">
         <div class="credit-grid">
@@ -450,12 +622,12 @@
       </div>
     </section>
 
-    <!-- 7. Download and verify -->
+    <!-- 8. Download -->
     <section id="download" class="section" aria-labelledby="download-title">
       <div class="wrap">
         <header class="section-head section-head-center">
           <p class="eyebrow">Download</p>
-          <h2 id="download-title">Download and verify</h2>
+          <h2 id="download-title">Download the NewTube APK</h2>
           <p class="section-lead">Distributed on GitHub, not on Google Play. Every APK is signed with the same key.</p>
           <div class="cta-row cta-center">
             <a class="btn btn-primary btn-lg" data-apk href="https://github.com/aleixrodriala/newtube/releases/latest">
@@ -473,7 +645,7 @@
 
         <div class="dl-grid">
           <div class="panel panel-apk">
-            <h3>Which file?</h3>
+            <h3>Which APK do I pick?</h3>
             <ul class="apk-list">
               <li>
                 <code>NewTube_&lt;version&gt;_<wbr>arm64-v8a.apk</code>
@@ -515,8 +687,35 @@
           </div>
 
           <div class="panel panel-wide">
-            <h3>Verify what you install</h3>
-            <p>Every APK is signed with the same key. Its certificate SHA-256 is:</p>
+            <h3>Check what you install</h3>
+            <p>Every APK is signed with the same key. Since 1.10.3 each one is built by GitHub Actions from the tagged
+              source, and every release is scanned on VirusTotal. The certificate fingerprint and how to check each step
+              are under <a href="#trust">Trust and verification</a>.</p>
+          </div>
+        </div>
+        <p class="visually-hidden" role="status" aria-live="polite" data-copy-status></p>
+      </div>
+    </section>
+
+    <!-- 9. Trust -->
+    <section id="trust" class="section section-alt" aria-labelledby="trust-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Trust and verification</p>
+          <h2 id="trust-title">Is NewTube safe? Check it yourself</h2>
+          <p class="section-lead">Each claim here links to something you can check: the certificate, the build, the scans and the code.</p>
+        </header>
+
+        <div class="dl-grid">
+          <div class="panel panel-wide">
+            <h3>Who builds and signs NewTube</h3>
+            <p>Every NewTube APK is signed with the same key, which belongs to the maintainer,
+              <a href="https://github.com/aleixrodriala">@aleixrodriala</a>. Up to 1.10.2 the APKs were built and signed on
+              the maintainer's computer. Since 1.10.3 the <a href="https://github.com/aleixrodriala/newtube/blob/main/.github/workflows/release.yml">release
+              workflow</a> builds and signs them on GitHub's servers from the tagged source, deletes the key from the build
+              machine afterwards, refuses any APK signed with another certificate, and attaches the files to a draft release
+              that the maintainer publishes by hand. The builds aren't reproducible yet.</p>
+            <p>The certificate (<code>CN=NewTube, OU=NewTube, O=aleixrodriala</code>) has this SHA-256:</p>
             <div class="copy-field">
               <code id="cert-sha" class="fingerprint">2e:f9:9d:76:ed:fa:d9:88:ad:17:cd:ee:8b:a1:8c:63:4e:23:0f:e1:e3:cb:1f:dc:6c:db:02:49:37:0a:36:c9</code>
               <button class="copy-btn" type="button" data-copy="cert-sha" hidden>
@@ -524,101 +723,138 @@
                 <span>Copy</span>
               </button>
             </div>
-            <p>Check it with <code>apksigner verify --print-certs &lt;file&gt;.apk</code>. Each release also lists a
-              SHA-256 for every file. From 1.10.3 the APKs are built by GitHub Actions from the tagged source; check
-              that with <code>gh attestation verify &lt;file&gt;.apk -R aleixrodriala/newtube</code>. NewTube's key is
-              not SmartTube's, so neither app can update the other.</p>
+            <ul class="checklist checklist-tight">
+              <li>The signature: <code>apksigner verify --print-certs &lt;file&gt;.apk</code></li>
+              <li>Where it was built: <code>gh attestation verify &lt;file&gt;.apk -R aleixrodriala/newtube</code></li>
+              <li>The file itself: compare its SHA-256 with <code>SHA256SUMS</code> on the release page</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>VirusTotal on every release</h3>
+            <p>When a release is published, a <a href="https://github.com/aleixrodriala/newtube/blob/main/.github/workflows/virustotal_scan.yml">workflow</a>
+              uploads each APK to VirusTotal, waits for the results and adds a table to the release notes with a link to
+              each report. For <a href="https://github.com/aleixrodriala/newtube/releases/tag/v1.13.0">1.13.0</a> (30 September 2026), no engine flagged any of
+              the four APKs (0 of 61 to 67 engines).</p>
+          </div>
+
+          <div class="panel">
+            <h3>Public source, MIT license</h3>
+            <p>All of NewTube's code is public: <a href="https://github.com/aleixrodriala/newtube">the app on GitHub</a> and its forks of SmartTube's
+              <a href="https://github.com/aleixrodriala/MediaServiceCore">MediaServiceCore</a> and
+              <a href="https://github.com/aleixrodriala/SharedModules">SharedModules</a>. Every release is tagged, so you can
+              read the exact source it was built from. The license is <a href="https://github.com/aleixrodriala/newtube/blob/main/LICENSE">MIT</a>, the same
+              as SmartTube.</p>
+          </div>
+
+          <div class="panel">
+            <h3>No analytics, no ad SDKs</h3>
+            <p>NewTube's <a href="https://github.com/aleixrodriala/newtube/blob/main/smarttubetv/build.gradle">dependencies</a> include no analytics,
+              crash-reporting or ad libraries, and the 1.13.0 APK's code contains no Firebase, Crashlytics, Sentry, ACRA,
+              Google Play Services or ad-network classes. The developer receives nothing. The app talks to YouTube, to
+              SponsorBlock, DeArrow and Return YouTube Dislike (each can be switched off), and to GitHub for update checks.
+              Details are in <a href="https://github.com/aleixrodriala/newtube/blob/main/PRIVACY.md">PRIVACY.md</a>.</p>
+          </div>
+
+          <div class="panel">
+            <h3>How the in-app updater checks an update</h3>
+            <p>It reads the update manifest from NewTube's GitHub releases over HTTPS and downloads the APK from the same
+              release. Before offering it, it <a href="https://github.com/aleixrodriala/SharedModules/blob/master/appupdatechecker2/src/main/java/com/liskovsoft/appupdatechecker2/AppUpdateChecker.java">checks</a>
+              that the file is a complete Android package for NewTube (<code>io.github.aleixrodriala.arc</code>) at the
+              announced version. Then it hands the file to Android's own installer, which refuses an update that isn't
+              signed with the same key as the installed app. The updater keeps no checksum of its own; the signature check
+              is Android's.</p>
           </div>
         </div>
-        <p class="visually-hidden" role="status" aria-live="polite" data-copy-status></p>
       </div>
     </section>
 
-    <!-- 8. FAQ -->
-    <section id="faq" class="section section-alt" aria-labelledby="faq-title">
+    <!-- 10. FAQ -->
+    <section id="faq" class="section" aria-labelledby="faq-title">
       <div class="wrap faq-wrap">
         <header class="section-head">
           <p class="eyebrow">FAQ</p>
-          <h2 id="faq-title">Questions</h2>
-          <p class="section-lead">Something missing? Ask on <a href="https://github.com/aleixrodriala/newtube/issues">GitHub</a> or <a href="https://discord.gg/xu3v6euSHq">Discord</a>.</p>
+          <h2 id="faq-title">SmartTube on your phone: questions and answers</h2>
+          <p class="section-lead">Something missing? Ask on <a href="https://github.com/aleixrodriala/newtube/issues">NewTube's GitHub issues</a> or <a href="https://discord.gg/xu3v6euSHq">Discord</a>.</p>
         </header>
 
         <div class="faq">
           <details>
-            <summary>Is there a SmartTube app for phones?</summary>
+            <summary>Can SmartTube be installed on phones?</summary>
             <div class="faq-body">
-              <p>SmartTube itself is made for Android TV and TV boxes, with an interface built for a TV remote.
-                NewTube is an unofficial phone client built on its engine: the same account sign-in and the same
-                SponsorBlock, DeArrow and Return YouTube Dislike integrations, with a touch interface, its own player
-                and offline saving. It is an independent project, not endorsed by SmartTube's developer.
-                If you have an Android TV, get <a href="https://github.com/yuliskov/SmartTube">SmartTube</a> for it.</p>
+              <p>SmartTube is made for Android TV and TV boxes. Its README says it is not for smartphones and offers no support there: &ldquo;There will not be a phone version.&rdquo; NewTube is an unofficial phone client built on SmartTube's engine: the same account sign-in and the same SponsorBlock, DeArrow and Return YouTube Dislike integrations, with a touch interface, its own player and offline saving. If you have an Android TV, get <a href="https://github.com/yuliskov/SmartTube">SmartTube</a> for it.</p>
             </div>
           </details>
           <details>
-            <summary>Do I need microG, GmsCore, root or ReVanced?</summary>
+            <summary>Is NewTube official?</summary>
             <div class="faq-body">
-              <p>No. NewTube isn't a patched YouTube app. It signs in with a code the way a TV does, so it
-                doesn't need Google Play Services or a stand-in for them.</p>
+              <p>No. NewTube is an independent, unofficial project. It is not affiliated with, funded, authorized or endorsed by Google LLC, YouTube, or SmartTube's developer. It is built on SmartTube's open-source code (MIT) by <a href="https://github.com/yuliskov">@yuliskov</a> and credits it.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Does it need Google Play Services, microG, root or ReVanced?</summary>
+            <div class="faq-body">
+              <p>No. NewTube isn't a patched YouTube app. It signs in with a code the way a TV does, so it doesn't need Google Play Services or a stand-in for them, and its APK contains no Google Play Services libraries.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How do I sign in?</summary>
+            <div class="faq-body">
+              <p>Open the <strong>You</strong> tab, tap the account row, then <strong>Sign in</strong>. NewTube shows a short code. Tap <strong>Continue with Google</strong>, pick your account on Google's own page and allow access, then come back: sign-in finishes by itself. Your password is only ever typed into Google's page, never into NewTube, and signing in is optional. <a href="#sign-in">More on sign-in</a>.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is it safe? Who signs the APK?</summary>
+            <div class="faq-body">
+              <p>Every NewTube APK is signed with the same key, which belongs to the maintainer, <a href="https://github.com/aleixrodriala">@aleixrodriala</a>. Since 1.10.3 the APKs are built and signed by GitHub Actions from the tagged source, and each file has a build attestation. Each release lists a SHA-256 for every file and a VirusTotal scan of every APK. The app has no analytics, no crash reporting and no ad SDKs. The certificate fingerprint and how to check each of these yourself are under <a href="#trust">Trust and verification</a>.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Which APK do I pick?</summary>
+            <div class="faq-body">
+              <p><code>arm64-v8a</code> fits almost every phone from the last ~8 years. <code>armeabi-v7a</code> is for older 32-bit phones, <code>universal</code> works on any ARM phone if you're not sure (it's bigger), and <code>x86</code> is for older x86 devices and emulators. NewTube needs Android 7.0 or newer.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How do updates work?</summary>
+            <div class="faq-body">
+              <p>NewTube checks its GitHub releases for a new version and offers it in the app; Android's installer then installs it over the old one, keeping your account and settings. You can also add <code>https://github.com/aleixrodriala/newtube</code> to <a href="https://obtainium.imranr.dev">Obtainium</a>, or install a newer APK over the old one yourself.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Will Google's developer verification block NewTube?</summary>
+            <div class="faq-body">
+              <p>Not for now, according to Google. The verification requirement that started on 30 September 2026 covers apps installed from participating stores, such as Google Play. Google's FAQ says that if users sideload an app directly, &ldquo;these new verification requirements won't apply to your app yet.&rdquo; NewTube is installed from GitHub, so it is sideloaded. Google has announced that verification will reach all installs in 2027; what NewTube does about that hasn't been decided yet.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Was it made with AI?</summary>
+            <div class="faq-body">
+              <p>Yes, in large part. NewTube is one person's project, and most of its own code (the phone interface, the player and the network work) was written with AI coding assistants (Claude and Codex); the commit trailers say so. The maintainer directs and reviews that work and uses the app daily. Each <a href="https://github.com/aleixrodriala/newtube/tree/main/docs/releases">release record</a> lists what was checked on a real phone, what only in automated tests, and what is still open. The engine underneath is SmartTube's, written by @yuliskov and its contributors over several years.</p>
             </div>
           </details>
           <details>
             <summary>How is it different from NewPipe, LibreTube or ReVanced?</summary>
             <div class="faq-body">
-              <p>They're all good apps, and which one fits depends on what you want. NewPipe and LibreTube
-                don't sign in to a Google account; they keep subscriptions on your phone or on a Piped server.
-                ReVanced patches the official app and needs GmsCore unless you're rooted.
-                NewTube is built on SmartTube, so it uses your real account without any of that.</p>
+              <p>They're all good apps, and which one fits depends on what you want. NewPipe and LibreTube don't sign in to a Google account; they keep subscriptions on your phone or on a Piped server. ReVanced patches the official app and needs GmsCore unless you're rooted. NewTube is built on SmartTube, so it uses your real account without any of that.</p>
             </div>
           </details>
           <details>
             <summary>Is there another SmartTube-based phone app?</summary>
             <div class="faq-body">
-              <p>Yes. <a href="https://github.com/CodeSculptor/SmarterTube">SmarterTube</a> is another independent phone
-                fork of SmartTube, worth comparing. The two are separate projects. One difference today
-                (September 2026): NewTube can save videos for offline.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Is it safe? How do I know the APK is really NewTube?</summary>
-            <div class="faq-body">
-              <p>Up to 1.10.2 the APKs were built on the maintainer's computer. From 1.10.3 they're built by GitHub
-                Actions from the tagged source, and each file has a build attestation you can check with
-                <code>gh attestation verify &lt;file&gt;.apk -R aleixrodriala/newtube</code>. The builds aren't
-                reproducible yet. Check the signing
-                certificate against the fingerprint under <a href="#download">Download</a>, and each file against the
-                SHA-256 in its release notes. Every release is tagged, so you can read
-                <a href="https://github.com/aleixrodriala/newtube">the exact source</a>.</p>
-              <p>No analytics, no crash reporting, no ad SDKs. The developer receives nothing.
-                The app talks to YouTube (which sees what you watch, as it would anywhere), to the community services
-                you can switch off (SponsorBlock, DeArrow, Return YouTube Dislike), and to GitHub. Details are
-                in <a href="https://github.com/aleixrodriala/newtube/blob/main/PRIVACY.md">PRIVACY.md</a>.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Was this made with AI?</summary>
-            <div class="faq-body">
-              <p>Yes, in large part. NewTube is one person's project, and most of its own code (the phone
-                interface, the player and the network work) was written with AI coding assistants (Claude and
-                Codex); the commit trailers say so. The maintainer directs and reviews that work and uses the app
-                daily. Each <a href="https://github.com/aleixrodriala/newtube/tree/main/docs/releases">release record</a>
-                lists what was checked on a real phone, what only in automated tests, and what is still open.
-                The engine underneath is SmartTube's, written by @yuliskov and its contributors over several years.</p>
+              <p>Yes. <a href="https://github.com/CodeSculptor/SmarterTube">SmarterTube</a> is another independent phone fork of SmartTube, worth comparing. The two are separate projects. One difference today (September 2026): NewTube can save videos for offline.</p>
             </div>
           </details>
           <details>
             <summary>Why no donations?</summary>
             <div class="faq-body">
-              <p>NewTube doesn't take donations. SmartTube did the heavy lifting, so if you want to give
-                something back, <a href="https://github.com/yuliskov/SmartTube#donation">support SmartTube</a>.</p>
+              <p>NewTube doesn't take donations. SmartTube did the heavy lifting, so if you want to give something back, <a href="https://github.com/yuliskov/SmartTube#donation">support SmartTube</a>.</p>
             </div>
           </details>
           <details>
             <summary>A video won't play. What now?</summary>
             <div class="faq-body">
-              <p>YouTube sometimes refuses a video or an account. NewTube retries through other routes, but not
-                every video comes back. If one keeps failing,
-                <a href="https://github.com/aleixrodriala/newtube/issues/new/choose">open an issue</a>
-                with the video link and your NewTube version.</p>
+              <p>YouTube sometimes refuses a video or an account. NewTube retries through other routes, but not every video comes back. If one keeps failing, <a href="https://github.com/aleixrodriala/newtube/issues/new/choose">open an issue</a> with the video link and your NewTube version.</p>
             </div>
           </details>
         </div>
@@ -626,7 +862,7 @@
     </section>
   </main>
 
-  <!-- 9. Footer -->
+  <!-- 11. Footer -->
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-top">
@@ -635,17 +871,18 @@
             <img src="assets/icon.svg" width="30" height="30" alt="">
             <span>NewTube</span>
           </a>
-          <p>Built on SmartTube. Made for your phone.</p>
+          <p>Built on SmartTube. Made for your phone.<br>SmartTube for phones, unofficial: built on SmartTube by <a href="https://github.com/yuliskov">@yuliskov</a>.</p>
         </div>
         <nav aria-label="Footer">
           <ul class="footer-links">
-            <li><a href="https://github.com/aleixrodriala/newtube">GitHub</a></li>
-            <li><a href="https://github.com/aleixrodriala/newtube/releases">Releases</a></li>
+            <li><a href="https://github.com/aleixrodriala/newtube">NewTube source code on GitHub</a></li>
+            <li><a href="https://github.com/aleixrodriala/newtube/releases">NewTube releases (APK)</a></li>
             <li><a href="https://github.com/aleixrodriala/newtube/blob/main/PRIVACY.md">Privacy</a></li>
             <li><a href="https://github.com/aleixrodriala/newtube/blob/main/LICENSE">License (MIT)</a></li>
             <li><a href="https://github.com/aleixrodriala/newtube/issues">Issues</a></li>
             <li><a href="https://discord.gg/xu3v6euSHq">Discord</a></li>
-            <li><a href="https://github.com/yuliskov/SmartTube">SmartTube</a></li>
+            <li><a href="#trust">Trust and verification</a></li>
+            <li><a href="https://github.com/yuliskov/SmartTube">SmartTube for Android TV</a></li>
           </ul>
         </nav>
       </div>

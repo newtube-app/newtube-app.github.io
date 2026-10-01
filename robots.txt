@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://newtube-app.github.io/sitemap.xml
+Sitemap: https://newtube.org/sitemap.xml
