@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://newtube.org/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://newtube.org/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://newtube.org/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://newtube.org/"/>
+  </url>
+  <url>
+    <loc>https://newtube.org/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://newtube.org/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://newtube.org/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://newtube.org/"/>
+  </url>
+  <url>
+    <loc>https://newtube.org/download/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://newtube.org/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://newtube.org/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://newtube.org/download/"/>
+  </url>
+  <url>
+    <loc>https://newtube.org/es/download/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://newtube.org/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://newtube.org/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://newtube.org/download/"/>
+  </url>
+  <url>
+    <loc>https://newtube.org/trust/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://newtube.org/trust/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://newtube.org/es/trust/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://newtube.org/trust/"/>
+  </url>
+  <url>
+    <loc>https://newtube.org/es/trust/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://newtube.org/trust/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://newtube.org/es/trust/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://newtube.org/trust/"/>
+  </url>
+  <url>
+    <loc>https://newtube.org/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://newtube.org/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://newtube.org/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://newtube.org/faq/"/>
+  </url>
+  <url>
+    <loc>https://newtube.org/es/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://newtube.org/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://newtube.org/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://newtube.org/faq/"/>
   </url>
 </urlset>

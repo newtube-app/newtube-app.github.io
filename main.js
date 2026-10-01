@@ -1,149 +1,148 @@
-/* NewTube landing page: two small progressive enhancements, no dependencies.
-   1. Show the latest release and link its arm64-v8a APK directly.
-      Any failure (no release yet, rate limit, missing asset, offline) leaves the
-      plain "releases/latest" links in place and shows nothing extra.
-   2. Copy buttons for the Obtainium URL and the certificate fingerprint. */
+/* newtube.org: small progressive enhancements, no dependencies. Every page works without them.
+   The release links, sizes and star count are written into the pages at build time (build.py),
+   so this file makes no network requests.
+   1. The chapter demo: chapters seek the clip and fill as it plays. The clip loads and plays
+      only when it is on screen, and never plays by itself with reduced motion or Save-Data on.
+   2. Copy buttons.
+   3. Links to the old one-page site's #anchors forward to the pages that replaced them.
+   4. A link to a FAQ answer opens it.
+   5. The speed numbers run like a stopwatch, in real time: 0.24 s takes 0.24 s to count. */
 (function () {
   "use strict";
 
-  var REPO = "aleixrodriala/newtube";
-  // The list endpoint answers 200 with [] while there are no releases, where
-  // /releases/latest answers 404 and leaves an error in the console.
-  var API = "https://api.github.com/repos/" + REPO + "/releases?per_page=5";
-  var DOWNLOAD_PREFIX = "https://github.com/" + REPO + "/releases/download/";
-  var CACHE_KEY = "newtube-release-v1";
-  var CACHE_TTL = 30 * 60 * 1000;
+  var LANG = (document.documentElement.lang || "en").slice(0, 2);
 
-  function readCache() {
-    try {
-      var raw = window.sessionStorage.getItem(CACHE_KEY);
-      if (!raw) return null;
-      var entry = JSON.parse(raw);
-      if (!entry || Date.now() - entry.t > CACHE_TTL) return null;
-      return entry.d;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function writeCache(data) {
-    try {
-      window.sessionStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), d: data }));
-    } catch (e) { /* storage unavailable: fine */ }
-  }
-
-  // Same choice as GitHub's "latest": the newest release that is neither a draft nor a prerelease.
-  function latestOf(list) {
-    if (!Array.isArray(list)) return null;
-    for (var i = 0; i < list.length; i++) {
-      if (list[i] && !list[i].draft && !list[i].prerelease) return list[i];
-    }
-    return null;
-  }
-
-  function pickRelease(json) {
-    if (!json || typeof json.tag_name !== "string" || json.draft || json.prerelease) return null;
-    var apk = null;
-    var assets = Array.isArray(json.assets) ? json.assets : [];
-    for (var i = 0; i < assets.length; i++) {
-      var a = assets[i];
-      if (a && typeof a.name === "string" && /_arm64-v8a\.apk$/i.test(a.name) &&
-          typeof a.browser_download_url === "string" &&
-          a.browser_download_url.indexOf(DOWNLOAD_PREFIX) === 0) {
-        apk = a;
-        break;
-      }
-    }
-    return {
-      tag: json.tag_name,
-      date: typeof json.published_at === "string" ? json.published_at : "",
-      url: apk ? apk.browser_download_url : "",
-      name: apk ? apk.name : ""
+  /* ---------- 3. Old anchors ---------- */
+  (function forwardOldAnchors() {
+    var path = location.pathname.replace(/index\.html$/, "");
+    if (path !== "/") return;
+    var map = {
+      "#download": "/download/",
+      "#trust": "/trust/",
+      "#faq": "/faq/",
+      "#sign-in": "/faq/#sign-in",
+      "#how-fast": "#speed",
+      "#smarttube": "/faq/#smarttube-on-phones",
+      "#smarttube-for-phones": "/faq/#smarttube-on-phones",
+      "#built-on-smarttube": "/faq/#smarttube-on-phones"
     };
-  }
+    var to = map[location.hash];
+    if (!to) return;
+    if (to.charAt(0) === "#") {
+      history.replaceState(null, "", to);
+      var el = document.querySelector(to);
+      if (el) el.scrollIntoView();
+    } else {
+      location.replace(to);
+    }
+  })();
 
-  function applyRelease(r) {
-    if (!r || !r.tag) return;
-    var version = /^v/i.test(r.tag) ? r.tag : "v" + r.tag;
-    var when = r.date ? new Date(r.date) : null;
-    var dateText = "";
-    if (when && !isNaN(when.getTime())) {
-      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      dateText = when.getUTCDate() + " " + months[when.getUTCMonth()] + " " + when.getUTCFullYear();
+  /* ---------- 1. Chapter demo ---------- */
+  function setupDemo() {
+    var root = document.querySelector("[data-demo]");
+    if (!root) return;
+    var video = root.querySelector("[data-demo-video]");
+    var toggle = root.querySelector("[data-demo-toggle]");
+    var buttons = root.querySelectorAll(".chapters button");
+    if (!video || !buttons.length) return;
+
+    var words = LANG === "es" ? { play: "Reproducir", pause: "Pausa" } : { play: "Play", pause: "Pause" };
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    var autoplay = !reduce && !saveData;
+    var userPaused = false;
+    var visible = false;
+
+    var chapters = [];
+    for (var i = 0; i < buttons.length; i++) {
+      chapters.push({
+        el: buttons[i],
+        fill: buttons[i].querySelector(".ch-bar i"),
+        start: parseFloat(buttons[i].getAttribute("data-start")) || 0,
+        end: parseFloat(buttons[i].getAttribute("data-end")) || 0
+      });
     }
 
-    var lines = document.querySelectorAll("[data-release]");
-    for (var i = 0; i < lines.length; i++) {
-      var line = lines[i];
-      var v = line.querySelector("[data-release-version]");
-      var t = line.querySelector("[data-release-date]");
-      var sep = line.querySelector("[data-release-sep]");
-      if (v) v.textContent = version;
-      if (t && dateText) {
-        t.textContent = dateText;
-        t.setAttribute("datetime", r.date);
-      } else {
-        if (t) t.remove();
-        if (sep) sep.remove();
+    function setToggle() {
+      if (!toggle) return;
+      var playing = !video.paused;
+      toggle.textContent = playing ? words.pause : words.play;
+      toggle.setAttribute("aria-pressed", playing ? "true" : "false");
+    }
+
+    function play() {
+      if (video.preload === "none") video.preload = "auto";
+      var p = video.play();
+      if (p && p.catch) p.catch(function () { setToggle(); });
+    }
+
+    var raf = 0;
+    function paint() {
+      var t = video.currentTime;
+      for (var c = 0; c < chapters.length; c++) {
+        var ch = chapters[c];
+        var p = t >= ch.end ? 1 : t <= ch.start ? 0 : (t - ch.start) / (ch.end - ch.start);
+        if (ch.fill) ch.fill.style.width = (p * 100).toFixed(2) + "%";
+        var on = t >= ch.start && t < ch.end;
+        ch.el.parentNode.classList.toggle("on", on);
+        if (on) ch.el.setAttribute("aria-current", "true"); else ch.el.removeAttribute("aria-current");
       }
-      line.hidden = false;
+      raf = video.paused ? 0 : requestAnimationFrame(paint);
     }
 
-    if (r.url) {
-      var links = document.querySelectorAll("a[data-apk]");
-      for (var j = 0; j < links.length; j++) {
-        links[j].href = r.url;
-        links[j].setAttribute("title", r.name);
-      }
+    video.addEventListener("play", function () { setToggle(); if (!raf) raf = requestAnimationFrame(paint); });
+    video.addEventListener("pause", function () { setToggle(); paint(); });
+    video.addEventListener("seeked", paint);
+
+    for (var b = 0; b < chapters.length; b++) {
+      (function (ch) {
+        ch.el.addEventListener("click", function () {
+          if (video.preload === "none") video.preload = "auto";
+          video.currentTime = ch.start + 0.05;
+          userPaused = false;
+          play();
+        });
+      })(chapters[b]);
     }
+
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        if (video.paused) { userPaused = false; play(); } else { userPaused = true; video.pause(); }
+      });
+    }
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        if (visible && autoplay && !userPaused) play();
+        else if (!visible && !video.paused) video.pause();
+      }, { threshold: 0.35 }).observe(video);
+    }
+    setToggle();
+    paint();
   }
 
-  function loadRelease() {
-    var cached = readCache();
-    if (cached) { applyRelease(cached); return; }
-    if (!window.fetch) return;
-
-    var controller = window.AbortController ? new AbortController() : null;
-    var timer = controller ? setTimeout(function () { controller.abort(); }, 6000) : null;
-
-    fetch(API, {
-      headers: { Accept: "application/vnd.github+json" },
-      credentials: "omit",
-      referrerPolicy: "no-referrer",
-      signal: controller ? controller.signal : undefined
-    })
-      .then(function (res) { return res.ok ? res.json() : null; })
-      .then(function (json) {
-        var r = pickRelease(latestOf(json));
-        if (!r) return;
-        writeCache(r);
-        applyRelease(r);
-      })
-      .catch(function () { /* keep the releases/latest links */ })
-      .then(function () { if (timer) clearTimeout(timer); });
-  }
-
+  /* ---------- 2. Copy buttons ---------- */
   function setupCopy() {
     if (!navigator.clipboard || !window.isSecureContext) return;
     var status = document.querySelector("[data-copy-status]");
     var buttons = document.querySelectorAll("[data-copy]");
+    var words = LANG === "es" ? { copy: "Copiar", done: "Copiado", said: "Copiado al portapapeles." }
+                              : { copy: "Copy", done: "Copied", said: "Copied to the clipboard." };
     for (var i = 0; i < buttons.length; i++) {
       (function (btn) {
         var target = document.getElementById(btn.getAttribute("data-copy"));
         var label = btn.querySelector("span");
         if (!target || !label) return;
-        btn.setAttribute("aria-label", "Copy " + (target.id === "cert-sha" ? "certificate fingerprint" : "repository URL"));
         btn.hidden = false;
         var reset = null;
         btn.addEventListener("click", function () {
           navigator.clipboard.writeText(target.textContent.trim()).then(function () {
-            label.textContent = "Copied";
-            btn.classList.add("is-done");
-            if (status) status.textContent = "Copied to the clipboard.";
+            label.textContent = words.done;
+            if (status) status.textContent = words.said;
             clearTimeout(reset);
             reset = setTimeout(function () {
-              label.textContent = "Copy";
-              btn.classList.remove("is-done");
+              label.textContent = words.copy;
               if (status) status.textContent = "";
             }, 2000);
           }, function () { /* clipboard refused: nothing to do */ });
@@ -152,6 +151,50 @@
     }
   }
 
-  loadRelease();
+  /* ---------- 4. A link to a FAQ answer opens it ---------- */
+  function openTarget() {
+    var id = location.hash.slice(1);
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.tagName === "DETAILS") el.open = true;
+  }
+
+  /* ---------- 5. Stopwatch ---------- */
+  function setupStopwatch() {
+    var list = document.querySelector(".stats");
+    if (!list || !("IntersectionObserver" in window) || !window.requestAnimationFrame) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var sep = LANG === "es" ? "," : ".";
+    var stats = [].map.call(list.querySelectorAll(".stat .n"), function (el) {
+      return { el: el, box: el.parentNode, end: parseFloat(el.textContent.replace(",", ".")), text: el.textContent };
+    }).filter(function (s) { return s.end > 0; });
+    if (!stats.length) return;
+
+    function show(s, v) { s.el.textContent = v.toFixed(2).replace(".", sep); }
+    function run() {
+      var t0 = null;
+      stats.forEach(function (s) { show(s, 0); s.box.classList.add("ticking"); });
+      requestAnimationFrame(function frame(now) {
+        if (t0 === null) t0 = now;
+        var elapsed = (now - t0) / 1000, running = false;
+        stats.forEach(function (s) {
+          if (elapsed < s.end) { show(s, elapsed); running = true; }
+          else if (s.box.classList.contains("ticking")) { s.el.textContent = s.text; s.box.classList.remove("ticking"); }
+        });
+        if (running) requestAnimationFrame(frame);
+      });
+    }
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      run();
+    }, { threshold: 0.6 });
+    io.observe(list);
+  }
+
+  setupDemo();
   setupCopy();
+  setupStopwatch();
+  openTarget();
+  window.addEventListener("hashchange", openTarget);
 })();
